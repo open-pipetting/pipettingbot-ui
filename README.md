@@ -2,15 +2,36 @@
 
 > The UI for PipettingBot
 
-## Building
+## For the Users
+
+### Windows
+
+### Linux
+
+### MacOSX
+
+## Hacking
+
+### Building
+
+If you want to build your own version of the *pipettingbot-ui*, please attent to the following prerequisits:
+
+-	buildtools;
+-	NodeJS > 0.10;
+-	npm
+- bower
+- node-webkit
+
+Having all of those listed, run:
 
 ```sh
 $ make
 ```
+
 :smile:
 
 
-## Automated Tests
+### Automated Tests
 
 No automated tests here - it is a very simple prototype. No time for that yet :disappointed_relieved:
 
