@@ -1,16 +1,21 @@
 {
-  "name": "tests-ui",
+  "name": "pipettingbot-ui",
+  "description": "The UI for PipettingBot",
   "version": "0.0.0",
   "homepage": "https://github.com/open-pipetting/tests-ui",
-  "authors": [
-    "Ciro S. Costa <ciro.costa@usp.br>"
-  ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "angular-flash-messages": "*",
+    "angular-i18n": "~1.0.8",
+    "angular-bootstrap": "*",
+    "ng-table": "~0.3.2",
+    "bootstrap": "~3.1.1",
+    "jquery": "1.11.1",
+    "html5-boilerplate": "~4.3.0"
+  }
 }
