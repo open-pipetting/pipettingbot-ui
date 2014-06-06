@@ -3,18 +3,64 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>PipettingBot UI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script src="../bower_components/angular/angular.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-flatly.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body ng-cloak>
 
-		<div>
-			<input type="text" ng-model="yourName">
-			<h2>Hello {{yourName}}</h2>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Pipetting Bot</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Buscar!</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+	</nav>
+
+	<div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-left">
+
+			<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Inserção de Arquivo</a></li>
+          <li><a href="#">Edição</a></li>
+          <li><a href="#">Opções</a></li>
+        </ul>
+
+        <ul class="nav nav-sidebar">
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Sair</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-9 col-md-10 main">
+        <p class="visible-xs">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        </p>
+
+        <div ng-view></div>
+
+    	</div>
 		</div>
+	</div>
 
-		<div ng-view></div>
-
+		<script src="../bower_components/jquery/dist/jquery.js"></script>
 		<script src="../bower_components/angular-route/angular-route.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/services.js"></script>
