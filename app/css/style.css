@@ -65,7 +65,7 @@ footer {
 .main {
   padding: 20px;
   background-color: #fff;
-  min-height: 230px;
+  min-height: 280px;
 }
 @media (min-width: 768px) {
   .main {

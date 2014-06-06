@@ -1,7 +1,7 @@
 {
   "name": "pipettingbot-ui",
   "description": "The UI for PipettingBot",
-  "main": "index.html",
+  "main": "app/index.html",
   "version": "0.0.0",
   "repository": "https://github.com/open-pipetting/tests-ui",
   "license": "MIT",
