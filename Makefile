@@ -6,7 +6,7 @@ app.nw: node_modules
 
 node_modules:
 	@echo "Checking if node_modules exist"
-	if [ ! -d node_modules ]; then npm install; fi;
+	@if [ ! -d node_modules ]; then npm install; fi;
 	@echo "node_modules OK!"
 
 clean:
