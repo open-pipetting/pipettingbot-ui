@@ -2,7 +2,6 @@
 
 /* Directives */
 
-
 angular.module('pbUi.directives', [])
   .directive('pbDragFile', [function () {
     return {

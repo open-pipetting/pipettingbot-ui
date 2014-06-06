@@ -8,8 +8,13 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-flatly.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+      button {
+        -webkit-app-region: no-drag;
+      }
+    </style>
 	</head>
-	<body ng-cloak ng-controller="mainCtrl">
+	<body ng-cloak ng-controller="mainCtrl" style="-webkit-app-region: drag">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
