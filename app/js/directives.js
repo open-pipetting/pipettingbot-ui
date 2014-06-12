@@ -3,42 +3,82 @@
 /* Directives */
 
 angular.module('pbUi.directives', [])
-  .directive('pbDragFile', [function () {
+  .directive('pbDragFile', ['$q', function ($q) {
+    var $fileChooser = jQuery('#file-dialog')
+        , Workbook = {}
+        , files = [];
+
+      Workbook._WB_toJSON = function (workbook) {
+        var result = {}
+          , roa = null;
+
+        workbook.SheetNames.forEach(function(sheetName) {
+          roa  = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+
+          if(roa.length > 0)
+            result[sheetName] = roa;
+        });
+
+        return result;
+      };
+
+      Workbook._WB_toCSV = function (workbook) {
+        var result = [];
+        var csv = null;
+
+        workbook.SheetNames.forEach(function(sheetName) {
+          csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+          if (csv.length) {
+            result.push("SHEET: " + sheetName);
+            result.push("");
+            result.push(csv);
+          }
+        });
+
+        return result.join("\n");
+      };
+
+      Workbook.fileToWorkbook = function (f) {
+        var reader = new FileReader()
+          , name = f.name
+          , dfd = $q.defer();
+
+        if (!f.name.match(/\w+\.xlsx$/)) {
+          dfd.reject(new Error('Filename does not match a valid one (something.xlsx)'));
+        };
+
+        reader.onload = function(event) {
+          var data = event.target.result
+            , workbook = null;
+
+            try {
+              workbook = XLSX.read(data, {type: 'binary'});
+              dfd.resolve(workbook);
+            } catch (err) {
+              dfd.reject(err);
+            }
+        };
+        reader.readAsBinaryString(f);
+
+        return dfd.promise;
+      };
+
+
     return {
       restrict: 'A',
       scope: true,
       link: function ($scope, $elem, $attrs) {
 
-        function _WB_toJSON(workbook) {
-          var result = {};
-          workbook.SheetNames.forEach(function(sheetName) {
-            var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-            if(roa.length > 0){
-              result[sheetName] = roa;
-            }
+        function handleFile (file) {
+          Workbook.fileToWorkbook(file).then(function (wb) {
+            console.log(wb);
+          }, function (err) {
+            console.log(err);
           });
-          return result;
         }
-
-        function _WB_toCSV(workbook) {
-          var result = [];
-          workbook.SheetNames.forEach(function(sheetName) {
-            var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-            if(csv.length > 0){
-              result.push("SHEET: " + sheetName);
-              result.push("");
-              result.push(csv);
-            }
-          });
-          return result.join("\n");
-        }
-
-        var Workbook = {
-          toJSON: _WB_toJSON,
-          toCSV: _WB_toCSV
-        };
 
         function handleDrop(event) {
+          var files, i, f;
 
           if (event != null) {
               event.preventDefault();
@@ -46,27 +86,13 @@ angular.module('pbUi.directives', [])
                                    event.originalEvent.dataTransfer;
           }
 
-          var files
-            , i
-            , f;
-
           event.stopPropagation();
           event.preventDefault();
 
           files = event.dataTransfer.files;
 
-          for (i = 0, f = files[i]; i != files.length; ++i) {
-            var reader = new FileReader();
-            var name = f.name;
-
-            reader.onload = function(event) {
-              var data = event.target.result;
-              var workbook = XLSX.read(data, {type: 'binary'});
-
-              console.log(Workbook.toCSV(workbook));
-
-            };
-            reader.readAsBinaryString(f);
+          if (files.length) {
+            handleFile(files[0]);
           }
         }
 
@@ -80,6 +106,17 @@ angular.module('pbUi.directives', [])
           return false;
         }
 
+        function popFileChooser (evt) {
+          $fileChooser.click();
+        }
+
+        $fileChooser.change(function () {
+          files = $(this).get(0).files;
+
+          handleFile(files[0]);
+        });
+
+        $elem.bind('click', popFileChooser);
         $elem.bind('dragover', onDragOver);
         $elem.bind('dragenter', onDragOver);
         $elem.bind('drop', handleDrop);

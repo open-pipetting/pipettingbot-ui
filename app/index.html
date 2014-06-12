@@ -8,28 +8,20 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-flatly.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-    <style>
-      button {
-        -webkit-app-region: no-drag;
-      }
-    </style>
 	</head>
-	<body ng-cloak ng-controller="mainCtrl" style="-webkit-app-region: drag">
+	<body ng-cloak ng-controller="mainCtrl" >
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Navegação</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="#">Pipetting Bot</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Buscar</a></li>
+          <li><a class="btn btn-xs">min</a></li>
+          <li><a class="btn btn-xs">max</a></li>
+          <li><a class="btn btn-xs">close</a></li>
         </ul>
         <form class="navbar-form navbar-right">
           <input type="text" class="form-control" placeholder="Termo a buscar">

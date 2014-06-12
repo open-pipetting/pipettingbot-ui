@@ -37,6 +37,13 @@ footer {
   }
 }
 
+.navbar.top-nav-bar {
+  background-color:#27AA90;
+}
+
+#drop-area:hover {
+  background-color: #C5D5D1;
+}
 
 /**
  * Sidebar
@@ -56,6 +63,11 @@ footer {
 .nav-sidebar > .active > a {
   color: #fff;
   background-color: #149c82;
+}
+
+.nav-sidebar > .active > a:hover {
+  color: #fff;
+  background-color: #018661;
 }
 
 /*

@@ -10,6 +10,9 @@ DD_GUTIL = ./node_modules/gulp-util/*
 DD_HTTPSERVER = ./node_modules/http-server/*
 DD_NWB = ./node_modules/node-webkit-builder/*
 
+start: $(TARGET)
+	nw $(TARGET)
+
 app.nw: node_modules
 	@echo "Building $@"
 	@zip -r $@ ./* -x "./build/*" "./cache/*" "./xlsx-files/*" "$(DD_BOWER)" \
@@ -20,9 +23,6 @@ node_modules:
 	@echo "Checking if node_modules exist"
 	@if [ ! -d node_modules ]; then npm install; fi;
 	@echo "node_modules OK!"
-
-start: $(TARGET)
-	nw $(TARGET)
 
 clean:
 	@echo "Removing $(TARGET)"

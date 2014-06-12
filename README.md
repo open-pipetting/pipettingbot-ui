@@ -30,6 +30,10 @@ $ make
 
 :smile:
 
+### Dev
+
+For a better dev of the UI elements, initialize the server (`$ http-server`), go to `http://localhost:8080` and then prepare the livereload for a better experience (`gulp watch`).
+
 
 ### Automated Tests
 
