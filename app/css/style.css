@@ -89,6 +89,11 @@ footer {
   margin-top: 0;
 }
 
+.main .machine-config table{
+  width: 400px;
+  margin: auto;
+}
+
 input {
   border-radius: 0 !important;
 }

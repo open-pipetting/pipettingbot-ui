@@ -9,7 +9,6 @@
     "angular": "1.2.x",
     "angular-route": "1.2.x",
     "angular-loader": "1.2.x",
-    "angular-flash-messages": "*",
     "angular-i18n": "~1.0.8",
     "angular-bootstrap": "*",
     "ng-table": "~0.3.2",

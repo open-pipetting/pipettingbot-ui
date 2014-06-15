@@ -39,7 +39,7 @@
           <li ng-click="currentTab = 'home'" ng-class="{active: currentTab == 'home'}"><a href="#">Home</a></li>
           <li ng-click="currentTab = 'file-insert'" ng-class="{active: currentTab == 'file-insert'}"><a href="#/file-insert">Inserção de Arquivo</a></li>
           <li ng-click="currentTab = 'edit'" ng-class="{active: currentTab == 'edit'}"><a href="#/edit">Edição</a></li>
-          <li ng-click="currentTab = 'options'" ng-class="{active: currentTab == 'options'}"><a href="#/options">Opções</a></li>
+          <li ng-click="currentTab = 'machine-config'" ng-class="{active: currentTab == 'machine-config'}"><a href="#/machine-config">Config. Máq.</a></li>
         </ul>
 
         <ul class="nav nav-sidebar">
@@ -61,6 +61,7 @@
 
 		<script src="../bower_components/jquery/dist/jquery.js"></script>
 		<script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/services.js"></script>
     <script src="js/filters.js"></script>
@@ -69,6 +70,7 @@
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/controllers/homeCtrl.js"></script>
 		<script src="js/controllers/fileInsertCtrl.js"></script>
+    <script src="js/controllers/machineConfigCtrl.js"></script>
 
     <script src="../node_modules/xlsx/dist/xlsx.full.min.js"></script>
 	</body>

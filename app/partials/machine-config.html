@@ -1,0 +1,37 @@
+<div class="machine-config">
+  <h1>Configurar máquina</h1>
+
+  <div class="row text-center ajuda" ng-show="showHelp">
+    <h3>Neste menu você pode manualmente configurar sua máquina.</h3>
+
+    <p>Os comandos são:</p>
+
+    <table class="table table-striped">
+    <tr>
+      <th class="text-center">Comandos</th>
+      <th class="text-center">Desc</th>
+    </tr>
+    <tr>
+      <td><code>w</code>/<code>w</code></td>
+      <td>Move eixo <strong>Z</strong></td>
+    </tr>
+    <tr>
+      <td><code>a</code>/<code>d</code></td>
+      <td>Move eixo <strong>X</strong></td>
+    </tr>
+    <tr>
+      <td><code>q</code>/<code>e</code></td>
+      <td>Move eixo <strong>Y</strong></td>
+    </tr>
+    </table>
+
+    <p>Esta tela não aparecerá mais ao entrar diretamente neste menu. Sempre que precisar de ajuda, clique no botão <strong>Ajuda</strong> no campo superior.</p>
+    <button class="btn btn-success">Entendi!</button>
+  </div>
+
+  <div class="row text-center config">
+    <p class="lead">Ao iniciar a calibragem você terá controle direto sobre os motores do sistema. Utilize com cuidado!</p>
+    <button btn-checkbox ng-model="calibrationInitiaded" class="btn btn-default">Iniciar Calibragem</button>
+  </div>
+
+</div>
