@@ -34,27 +34,15 @@
     <div class="row row-offcanvas row-offcanvas-left">
 
 			<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
-
         <ul class="nav nav-sidebar">
-          <li ng-click="currentTab = 'home'" ng-class="{active: currentTab == 'home'}"><a href="#">Home</a></li>
-          <li ng-click="currentTab = 'file-insert'" ng-class="{active: currentTab == 'file-insert'}"><a href="#/file-insert">Inserção de Arquivo</a></li>
-          <li ng-click="currentTab = 'edit'" ng-class="{active: currentTab == 'edit'}"><a href="#/edit">Edição</a></li>
-          <li ng-click="currentTab = 'machine-config'" ng-class="{active: currentTab == 'machine-config'}"><a href="#/machine-config">Config. Máq.</a></li>
-        </ul>
-
-        <ul class="nav nav-sidebar">
-          <li ng-click="currentTab = 'about'" ng-class="{active: currentTab == 'about'}"><a href="#/about">Sobre</a></li>
-          <li><a href="#/exit">Sair</a></li>
+          <li ng-repeat="section in sections">
+            <a ng-href="#{{section.ref}}" ng-click="setSectionAsActive($index)" ng-class="{disabled: !section.allowed, active: section.active}">{{section.name}}</a>
+          </li>
         </ul>
       </div>
 
       <div class="col-sm-9 col-md-10 main">
-        <p class="visible-xs">
-          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-        </p>
-
         <div ng-view></div>
-
     	</div>
 		</div>
 	</div>

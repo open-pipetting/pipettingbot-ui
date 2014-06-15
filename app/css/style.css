@@ -24,6 +24,24 @@ input {
   box-shadow: 0 0 100px #747474;
 }
 
+.active {
+  background-color: #018661;
+  color: white;
+}
+
+.active:hover {
+  background-color: #018661 !important;
+  color: white;
+}
+
+.disabled {
+  color: #CACACA;
+}
+
+.disabled:hover {
+  color: #CACACA;
+}
+
 /**
  * Off canvas
  */
@@ -122,4 +140,9 @@ input {
 .home .port > div:hover {
   box-shadow: 0 3px 20px rgba(47, 182, 123, 0.33);
   cursor: pointer;
+}
+
+.home .port .selected {
+  background-color: #18BC9C;
+  color: white;
 }

@@ -21,7 +21,7 @@ angular.module('pbUi', [
   'pbUi.machineConfigCtrl'
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/home', {
         templateUrl: 'partials/home.html',
         controller: 'homeCtrl'
       })
@@ -37,5 +37,5 @@ angular.module('pbUi', [
         templateUrl: 'partials/about.html',
         controller: 'aboutCtrl'
       })
-      .otherwise({redirectTo: '/'});
+      .otherwise({redirectTo: '/home'});
   }]);
