@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('pbUi', [
+  //external
   'ngRoute',
   'ui.bootstrap',
+
+  //filters & services
   'pbUi.filters',
   'pbUi.services',
-  'pbUi.directives',
+
+  // directives
+  'pbUi.positionShower',
+  'pbUi.dragXlsxFile',
+
+  // controllers
   'pbUi.mainCtrl',
   'pbUi.homeCtrl',
   'pbUi.fileInsertCtrl',
