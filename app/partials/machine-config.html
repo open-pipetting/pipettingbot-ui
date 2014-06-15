@@ -31,7 +31,39 @@
 
   <div class="row text-center config">
     <p class="lead">Ao iniciar a calibragem você terá controle direto sobre os motores do sistema. Utilize com cuidado!</p>
-    <button btn-checkbox ng-model="calibrationInitiaded" class="btn btn-default">Iniciar Calibragem</button>
+    <input btn-checkbox ng-model="calibrationInitiaded" ng-value="isCalibrating ? 'Parar' : 'Iniciar'" ng-click="toggleCalibration()" class="btn btn-default" type="button">
+
+    <br>
+    <div ng-show="isCalibrating">
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-striped">
+            <tr>
+              <th class="text-center">Comandos</th>
+              <th class="text-center">Desc</th>
+            </tr>
+            <tr>
+              <td><code>w</code>/<code>w</code></td>
+              <td>Move eixo <strong>Z</strong></td>
+            </tr>
+            <tr>
+              <td><code>a</code>/<code>d</code></td>
+              <td>Move eixo <strong>X</strong></td>
+            </tr>
+            <tr>
+              <td><code>q</code>/<code>e</code></td>
+              <td>Move eixo <strong>Y</strong></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-8">
+          <h4>Seus comandos:</h4>
+          <pb-positionshower></pb-positionshower>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
 </div>
