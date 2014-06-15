@@ -43,7 +43,7 @@
         </ul>
 
         <ul class="nav nav-sidebar">
-          <li><a href="#/about">Sobre</a></li>
+          <li ng-click="currentTab = 'about'" ng-class="{active: currentTab == 'about'}"><a href="#/about">Sobre</a></li>
           <li><a href="#/exit">Sair</a></li>
         </ul>
       </div>
@@ -71,6 +71,7 @@
     <script src="js/directives/pb-positionshower.js"></script>
 
     <script src="js/controllers/mainCtrl.js"></script>
+    <script src="js/controllers/aboutCtrl.js"></script>
     <script src="js/controllers/homeCtrl.js"></script>
 		<script src="js/controllers/fileInsertCtrl.js"></script>
     <script src="js/controllers/machineConfigCtrl.js"></script>

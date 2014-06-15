@@ -1,10 +1,28 @@
-<div class="jumbotron text-center">
-  <h1>PipettingBot</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-  <p>
-  	<a class="btn btn-primary btn-lg" role="button">Isso</a>
-  	<a class="btn btn-primary btn-lg" role="button">Aquilo</a>
-  </p>
+<div class="home">
+  <h1>Selecione uma máquina</h1>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="lead">Escolha qual máquina você deseja conectar-se. As possíveis aparecerão ao lado. Clique no botão abaixo para forçar a atualização.</p>
+
+      <button class="btn btn-success">Atualizar</button>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-inline">
+        <li ng-repeat="port in ports" class="port">
+          <div class="panel panel-success">
+            <div class="panel-heading text-center">
+              <h3 class="panel-title">{{port.comName}}</h3>
+            </div>
+            <div class="panel-body">
+              <p><strong>manufacturer</strong>: {{port.manufacturer}}</p>
+              <p><strong>pnpId</strong>: {{port.pnpId}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

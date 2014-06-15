@@ -15,6 +15,7 @@ angular.module('pbUi', [
 
   // controllers
   'pbUi.mainCtrl',
+  'pbUi.aboutCtrl',
   'pbUi.homeCtrl',
   'pbUi.fileInsertCtrl',
   'pbUi.machineConfigCtrl'
@@ -31,6 +32,10 @@ angular.module('pbUi', [
       .when('/machine-config', {
         templateUrl: 'partials/machine-config.html',
         controller: 'machineConfigCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'partials/about.html',
+        controller: 'aboutCtrl'
       })
       .otherwise({redirectTo: '/'});
   }]);
