@@ -1,17 +1,16 @@
 angular.module('pbUi.homeCtrl', [])
-  .controller('homeCtrl', ['$scope', function($scope) {
-    $scope.ports = [
-      {
-        comName: 'dahora',
-        manufacturer: 'dahudsh',
-        pnpId: 'dahudsh',
-        selected: false
-      },
-      {
-        comName: 'dahora',
-        manufacturer: 'dahudsh',
-        pnpId: 'dahudsh',
-        selected: false
-      }
-    ];
+  .controller('homeCtrl',
+              ['$scope', '$q', 'OpenPorts',
+              function($scope, $q, OpenPorts) {
+    'use strict';
+
+  	$scope.ports = [];
+  	$scope.getPorts = function () {
+  		OpenPorts.getPorts().then(function (ports) {
+  			$scope.ports = ports;
+  		}, function (err) {
+  			console.error(err);
+  		});
+  	};
+
   }]);

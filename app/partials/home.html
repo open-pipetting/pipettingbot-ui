@@ -7,9 +7,11 @@
     <div class="col-md-6">
       <p class="lead">Escolha qual máquina você deseja conectar-se. As possíveis aparecerão ao lado. Clique no botão abaixo para forçar a atualização.</p>
 
-      <button class="btn btn-success">Atualizar</button>
+      <button class="btn btn-success" ng-click="getPorts()">Atualizar</button>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
+      <p class="lead text-muted" ng-hide="ports">Nenhum aparelho encontrado :(</p>
+
       <ul class="list-inline">
         <li ng-repeat="port in ports" class="port">
           <div class="panel panel-success" ng-class="{selected: port.selected}" ng-click="setCurrentMachine(port)">

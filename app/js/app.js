@@ -5,9 +5,12 @@ angular.module('pbUi', [
   'ngRoute',
   'ui.bootstrap',
 
-  //filters & services
+  //filters
   'pbUi.filters',
-  'pbUi.services',
+
+  //services
+  'pbUi.mockRequire',
+  'pbUi.openPorts',
 
   // directives
   'pbUi.positionShower',

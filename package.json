@@ -20,7 +20,8 @@
     "max_height": 768
   },
   "dependencies": {
-    "xlsx": "^0.7.6-g"
+    "xlsx": "^0.7.6-g",
+    "serialport": "^1.4.0"
   },
   "devDependencies": {
     "bower": "^1.3.1",
