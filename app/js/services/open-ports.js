@@ -2,9 +2,7 @@ angular.module('pbUi.openPorts', [])
   .factory('OpenPorts', ['$q', 'MockRequire', function ($q, MockRequire) {
     'use strict';
 
-    var require = require
-      ? require
-      : MockRequire.require;
+    var require = require || MockRequire.require;
 
     function _getPorts () {
       var serialPort = require("serialport")
