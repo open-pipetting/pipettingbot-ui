@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('pbUi', [
+
   //external
   'ngRoute',
   'ui.bootstrap',
@@ -23,6 +24,7 @@ angular.module('pbUi', [
   'pbUi.homeCtrl',
   'pbUi.fileInsertCtrl',
   'pbUi.machineConfigCtrl'
+
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/home', {
