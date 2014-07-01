@@ -13,8 +13,8 @@ angular.module('pbUi', [
   'pbUi.openPorts',
 
   // directives
-  'pbUi.positionShower',
   'pbUi.dragXlsxFile',
+  'cube-trans-vis',
 
   // controllers
   'pbUi.mainCtrl',

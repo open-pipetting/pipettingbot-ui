@@ -1,69 +1,69 @@
 <div class="machine-config">
-  <h1>Configurar máquina</h1>
-
-  <div class="row text-center ajuda" ng-show="showHelp">
-    <h3>Neste menu você pode manualmente configurar sua máquina.</h3>
-
-    <p>Os comandos são:</p>
-
-    <table class="table table-striped">
-    <tr>
-      <th class="text-center">Comandos</th>
-      <th class="text-center">Desc</th>
-    </tr>
-    <tr>
-      <td><code>w</code>/<code>w</code></td>
-      <td>Move eixo <strong>Z</strong></td>
-    </tr>
-    <tr>
-      <td><code>a</code>/<code>d</code></td>
-      <td>Move eixo <strong>X</strong></td>
-    </tr>
-    <tr>
-      <td><code>q</code>/<code>e</code></td>
-      <td>Move eixo <strong>Y</strong></td>
-    </tr>
-    </table>
-
-    <p>Esta tela não aparecerá mais ao entrar diretamente neste menu. Sempre que precisar de ajuda, clique no botão <strong>Ajuda</strong> no campo superior.</p>
-    <button class="btn btn-success">Entendi!</button>
-  </div>
+  <h1>Configurar máquina <button class="btn btn-sm btn-success" ng-show="currentMachineConfig" ng-click="currentMachineConfig = false">Voltar</button></h1>
 
   <div class="row text-center config">
-    <p class="lead">Ao iniciar a calibragem você terá controle direto sobre os motores do sistema. Utilize com cuidado!</p>
-    <input btn-checkbox ng-model="calibrationInitiaded" ng-value="isCalibrating ? 'Parar' : 'Iniciar'" ng-click="toggleCalibration()" class="btn btn-default" type="button">
+    <br/>
 
-    <br>
-    <div ng-show="isCalibrating">
-      <div class="row">
-        <div class="col-md-4">
-          <table class="table table-striped">
-            <tr>
-              <th class="text-center">Comandos</th>
-              <th class="text-center">Desc</th>
-            </tr>
-            <tr>
-              <td><code>w</code>/<code>w</code></td>
-              <td>Move eixo <strong>Z</strong></td>
-            </tr>
-            <tr>
-              <td><code>a</code>/<code>d</code></td>
-              <td>Move eixo <strong>X</strong></td>
-            </tr>
-            <tr>
-              <td><code>q</code>/<code>e</code></td>
-              <td>Move eixo <strong>Y</strong></td>
-            </tr>
-          </table>
+    <div ng-show="!currentMachineConfig">
+      <p class="lead">Aqui você irá configurar sua máquina. Há dois tipos de configuração: <strong>calibragem</strong> e <strong>parametrização</strong>. Clique sobre o ítem para configurar da maneira desejada.</p>
+      <br/>
+
+      <div class="col-md-6">
+        <div class="jumbotron" style="cursor: pointer" ng-click="currentMachineConfig = 'calibrate'">
+          <h2 class="text-success">Calibragem</h2>
+          <p>Você manualmente configura a movimentação da máquina.</p>
         </div>
-        <div class="col-md-8">
-          <h4>Seus comandos:</h4>
-          <pb-positionshower></pb-positionshower>
+      </div>
+      <div class="col-md-6">
+        <div class="jumbotron" style="cursor: pointer" ng-click="currentMachineConfig = 'parametrize'">
+          <h2 class="text-success">Parametrização</h2>
+          <p>São passados parâmetros da máquina (altura, camadas e outros).</p>
         </div>
       </div>
     </div>
 
+    <div ng-show="currentMachineConfig === 'calibrate'">
+      <p class="lead">Ao iniciar a calibragem você terá controle direto sobre os motores do sistema. Utilize com cuidado!</p>
+      <input btn-checkbox ng-model="calibrationInitiaded" ng-value="isCalibrating ? 'Parar' : 'Iniciar'" ng-click="toggleCalibration()" class="btn btn-default" type="button">
 
+      <br>
+      <div ng-show="isCalibrating">
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Referência</h4>
+            <table class="table table-striped">
+              <tr>
+                <th class="text-center">Comandos</th>
+                <th class="text-center">Desc</th>
+              </tr>
+              <tr>
+                <td><code>w</code>/<code>w</code></td>
+                <td>Move eixo <strong>Z</strong></td>
+              </tr>
+              <tr>
+                <td><code>a</code>/<code>d</code></td>
+                <td>Move eixo <strong>X</strong></td>
+              </tr>
+              <tr>
+                <td><code>q</code>/<code>e</code></td>
+                <td>Move eixo <strong>Y</strong></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-6 text-center">
+            <h4>Seus comandos</h4>
+            <cube-transvis width="200"></cube-transvis>
+          </div>
+          <div class="col-md-2">
+            <h4>Motor</h4>
+            <div class="form-group">
+              <label for="passos">Passos</label>
+              <input type="number" class="form-control" id="passos" placeholder="1, 10, 100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

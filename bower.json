@@ -13,7 +13,8 @@
     "angular-bootstrap": "*",
     "ng-table": "~0.3.2",
     "jquery": "1.11.1",
-    "html5-boilerplate": "~4.3.0"
+    "html5-boilerplate": "~4.3.0",
+    "cube-translation-vis": "~0.0.1"
   },
   "resolutions": {
     "angular": "1.2.16"
