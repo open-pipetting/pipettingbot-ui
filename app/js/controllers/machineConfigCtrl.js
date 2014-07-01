@@ -1,9 +1,13 @@
 angular.module('pbUi.machineConfigCtrl', [])
-  .controller('machineConfigCtrl', ['$scope', function($scope) {
+  .controller('machineConfigCtrl', [
+              '$scope',
+              'MachineService',
+              function($scope, MachineService) {
 
     $scope.isCalibrating = false;
     $scope.currentMachineConfig;
     $scope.passos = 1;
+    $scope.machine = MachineService;
 
     var genMoveCode = (function GenMoveCode (start) {
       var counter = start || {x: 0, y: 0};

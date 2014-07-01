@@ -9,6 +9,7 @@ angular.module('pbUi', [
   'pbUi.filters',
 
   //services
+  'pbUi.machineService',
   'pbUi.mockRequire',
   'pbUi.openPorts',
 

@@ -64,6 +64,29 @@
         </div>
       </div>
     </div>
+
+    <div ng-show="currentMachineConfig === 'parametrize'">
+      <div class="row">
+        <p class="lead">Insira/Edite os parâmetros abaixo de acordo com as dimensões e parâmetros da sua máquina. Esta configuração é necessária para que o controle por software seja o mais próximo do perfeito!</p>
+
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Param</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="param in machine.model">
+              <td>{{param.name}}</td>
+              <td><input type="number" ng-model="param.value" value="{{param.value}}"></td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <button class="btn btn-success" ng-click="machine.SaveState()">Salvar</button>
+      </div>
+    </div>
   </div>
 
 </div>
