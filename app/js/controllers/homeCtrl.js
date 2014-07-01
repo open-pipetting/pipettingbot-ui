@@ -5,6 +5,7 @@ angular.module('pbUi.homeCtrl', [])
     'use strict';
 
   	$scope.ports = [];
+
   	$scope.getPorts = function () {
   		OpenPorts.getPorts().then(function (ports) {
   			$scope.ports = ports;

@@ -52,13 +52,13 @@
           </div>
           <div class="col-md-6 text-center">
             <h4>Seus comandos</h4>
-            <cube-transvis width="200"></cube-transvis>
+            <cube-transvis width="200" handler="onMove(dir)"></cube-transvis>
           </div>
           <div class="col-md-2">
             <h4>Motor</h4>
             <div class="form-group">
               <label for="passos">Passos</label>
-              <input type="number" class="form-control" id="passos" placeholder="1, 10, 100">
+              <input type="number" ng-model="passos" class="form-control" id="passos" placeholder="1, 10, 100">
             </div>
           </div>
         </div>
