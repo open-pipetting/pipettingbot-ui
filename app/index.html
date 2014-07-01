@@ -36,7 +36,7 @@
 			<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
         <ul class="nav nav-sidebar">
           <li ng-repeat="section in sections">
-            <a ng-href="#{{section.ref}}" ng-click="setSectionAsActive($index)" ng-class="{disabled: !section.allowed, active: section.active}">{{section.name}}</a>
+            <a ng-href="#{{section.ref}}" ng-click="setSectionAsActive($index, $event)" ng-class="{disabled: !section.allowed, active: section.active}">{{section.name}}</a>
           </li>
         </ul>
       </div>

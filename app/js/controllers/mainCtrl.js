@@ -32,7 +32,13 @@ angular.module('pbUi.mainCtrl', [])
         active: false }
     ];
 
-    $scope.setSectionAsActive = function (index) {
+    $scope.setSectionAsActive = function (index, event) {
+      if (!$scope.sections[index].allowed) {
+        event.preventDefault();
+
+        return;
+      }
+
       for (var i in $scope.sections) {
         var sec = $scope.sections[i];
 
