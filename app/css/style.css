@@ -75,6 +75,10 @@ input {
   background-color:#27AA90;
 }
 
+.navbar .connect-status {
+  margin-left: 20px;
+}
+
 #drop-area:hover {
   cursor: pointer;
   background-color: #C5D5D1;

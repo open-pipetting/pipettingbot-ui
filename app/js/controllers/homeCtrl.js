@@ -6,6 +6,10 @@ angular.module('pbUi.homeCtrl', [])
 
   	$scope.ports = [];
 
+    $scope.searchDevice = function () {
+      OpenPorts.searchDevice();
+    };
+
   	$scope.getPorts = function () {
   		OpenPorts.getPorts().then(function (ports) {
   			$scope.ports = ports;

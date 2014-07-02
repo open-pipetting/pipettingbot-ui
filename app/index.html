@@ -17,15 +17,14 @@
         <a class="navbar-brand" href="#">Pipetting Bot</a>
       </div>
       <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav connect-status" ng-show="currentMachine">
+          <li><a>Aparelho <strong>Conectado</strong>!</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Buscar</a></li>
           <li><a class="btn btn-xs" ng-click="gui('min')">min</a></li>
           <li><a class="btn btn-xs" ng-click="gui('max')">max</a></li>
           <li><a class="btn btn-xs" ng-click="gui('close')">close</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Termo a buscar (ajuda)">
-        </form>
       </div>
     </div>
 	</nav>
@@ -55,7 +54,6 @@
 		<script src="js/app.js"></script>
     <script src="js/filters.js"></script>
 
-    <script src="js/services/mock-require.js"></script>
     <script src="js/services/open-ports.js"></script>
     <script src="js/services/machine-service.js"></script>
     <script src="js/services/system-service.js"></script>

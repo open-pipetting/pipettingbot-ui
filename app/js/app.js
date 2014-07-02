@@ -11,7 +11,6 @@ angular.module('pbUi', [
 
   //services
   'pbUi.machineService',
-  'pbUi.mockRequire',
   'pbUi.openPorts',
   'pbUi.systemService',
 
