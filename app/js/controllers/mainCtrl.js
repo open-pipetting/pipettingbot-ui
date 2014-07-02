@@ -32,6 +32,23 @@ angular.module('pbUi.mainCtrl', [])
         active: false }
     ];
 
+    /**
+     * Constrols de GUI.
+     */
+    $scope.gui = function (w) {
+      switch (w) {
+        case 'min':
+        console.log('min');
+        break;
+        case 'max':
+        console.log('max');
+        break;
+        case 'close':
+        console.log("close");
+        break;
+      }
+    }
+
     $scope.setSectionAsActive = function (index, event) {
       if (!$scope.sections[index].allowed) {
         event.preventDefault();
