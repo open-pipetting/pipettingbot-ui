@@ -1,5 +1,7 @@
 angular.module('pbUi.mainCtrl', [])
-  .controller('mainCtrl', ['$scope', function($scope) {
+  .controller('mainCtrl',
+              ['$scope', 'SystemService',
+              function($scope, SystemService) {
 
     $scope.currentMachine = null;
     /**
@@ -38,13 +40,15 @@ angular.module('pbUi.mainCtrl', [])
     $scope.gui = function (w) {
       switch (w) {
         case 'min':
-        console.log('min');
+        SystemService.minimize();
         break;
+
         case 'max':
-        console.log('max');
+        SystemService.maximize();
         break;
+
         case 'close':
-        console.log("close");
+        SystemService.close();
         break;
       }
     }

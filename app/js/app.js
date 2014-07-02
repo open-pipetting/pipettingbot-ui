@@ -13,6 +13,7 @@ angular.module('pbUi', [
   'pbUi.machineService',
   'pbUi.mockRequire',
   'pbUi.openPorts',
+  'pbUi.systemService',
 
   // directives
   'pbUi.dragXlsxFile',
