@@ -18,7 +18,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav connect-status" ng-show="currentMachine">
-          <li><a>Aparelho <strong>Conectado</strong>!</a></li>
+          <li><a>Aparelho <strong ng-if="currentMachine.open">Conectado</strong><strong ng-if="!currentMachine.open">Desconectado</strong>!</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" style="-webkit-app-region: no-drag">
           <li><a class="btn btn-xs" ng-click="gui('min')">min</a></li>

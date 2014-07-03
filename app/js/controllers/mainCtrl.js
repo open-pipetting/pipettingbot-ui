@@ -3,7 +3,7 @@ angular.module('pbUi.mainCtrl', [])
               ['$scope', 'SystemService',
               function($scope, SystemService) {
 
-    $scope.currentMachine = null;
+    $scope.currentMachine = {};
     /**
      * Keeps track of the sections that are allowed to be navigated into
      */
@@ -79,7 +79,7 @@ angular.module('pbUi.mainCtrl', [])
 
       port.selected = !port.selected;
       if (!port.selected) {
-        $scope.currentMachine = null;
+        $scope.currentMachine = {};
       } else {
         $scope.currentMachine = port;
       }

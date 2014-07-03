@@ -17,8 +17,8 @@
               <h3 class="panel-title">{{port.info.comName}}</h3>
             </div>
             <div class="panel-body">
-              <p><strong>manufacturer</strong>: {{port.info.manufacturer}}</p>
-              <p><strong>pnpId</strong>: {{port.info.pnpId}}</p>
+              <p><strong>sign</strong>: {{port.info.signature | limitTo:20}}</p>
+              <p><strong>pnpId</strong>: {{port.info.pnpId | limitTo:20}}</p>
             </div>
           </div>
         </li>
