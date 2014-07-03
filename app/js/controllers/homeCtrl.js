@@ -11,8 +11,8 @@ angular.module('pbUi.homeCtrl', [])
     };
 
   	$scope.getPorts = function () {
-  		OpenPorts.getPorts().then(function (ports) {
-  			$scope.ports = ports;
+  		OpenPorts.getDevice().then(function (device) {
+  			$scope.ports = [device];
   		}, function (err) {
   			console.error(err);
   		});

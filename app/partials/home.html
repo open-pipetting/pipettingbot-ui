@@ -9,16 +9,16 @@
     </div>
 
     <div class="col-md-6 text-center">
-      <p class="lead text-muted" ng-hide="ports">Nenhum aparelho encontrado :(</p>
+      <p class="lead text-muted" ng-hide="ports">Não foram encontrados aparelhos. Clique em atualizar para checar!</p>
       <ul class="list-inline">
         <li ng-repeat="port in ports" class="port">
           <div class="panel panel-success" ng-class="{selected: port.selected}" ng-click="setCurrentMachine(port)">
             <div class="panel-heading text-center">
-              <h3 class="panel-title">{{port.comName}}</h3>
+              <h3 class="panel-title">{{port.info.comName}}</h3>
             </div>
             <div class="panel-body">
-              <p><strong>manufacturer</strong>: {{port.manufacturer}}</p>
-              <p><strong>pnpId</strong>: {{port.pnpId}}</p>
+              <p><strong>manufacturer</strong>: {{port.info.manufacturer}}</p>
+              <p><strong>pnpId</strong>: {{port.info.pnpId}}</p>
             </div>
           </div>
         </li>
