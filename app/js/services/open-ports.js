@@ -1,12 +1,7 @@
 angular.module('pbUi.openPorts', [])
   .factory('OpenPorts', ['$q', function ($q) {
     'use strict';
-
-    var spm = require('serialport-manager')
-      , split = require('split');
-
-    if (!$q)
-      var $q = require('q');
+    var serialPort = require("serialport");
 
     /**
      * Represents the conjunction of machines that we might have to search
@@ -15,13 +10,19 @@ angular.module('pbUi.openPorts', [])
 
     Machines.prototype.search = function (onValidDeviceFound) {
       var scope = this;
+      serialPort.list(function (err, ports) {
+        ports.forEach(function (port) {
+          var device = {
+            info: port
+          };
 
-      spm(function (err, manager) {
-        if (err) throw err;
+          spm(port.comName, function (e, sp, sig) {
+            device.info.signature = sig;
 
-        manager.on('device', function (device) {
-          if (scope.isValidDevice(device))
-            onValidDeviceFound(device);
+            if (scope.isValidDevice(device)) {
+              console.log("IS VALID!");
+            }
+          });
         });
       });
     };
@@ -43,65 +44,65 @@ angular.module('pbUi.openPorts', [])
       this.dFun = dFun;
     }
 
-    Device.prototype.connect = function (onData) {
-      var dfd = $q.defer();
-      var scope = this;
+    // Device.prototype.connect = function (onData) {
+    //   var dfd = $q.defer();
+    //   var scope = this;
 
-      this.device.connect(function (err, stream) {
-        if (err) dfd.reject(err);
+    //   this.device.connect(function (err, stream) {
+    //     if (err) dfd.reject(err);
 
-        stream.setEncoding('utf8');
-        stream.on('end', function () {
-          dFun('disconnected');
-        });
+    //     stream.setEncoding('utf8');
+    //     stream.on('end', function () {
+    //       dFun('disconnected');
+    //     });
 
-        scope.stream = stream;
-        dfd.resolve(scope);
-      });
+    //     scope.stream = stream;
+    //     dfd.resolve(scope);
+    //   });
 
-      return dfd.promise;
-    };
+    //   return dfd.promise;
+    // };
 
-    Device.prototype.write = function (data) {
-      this.stream.write(data);
-    };
+    // Device.prototype.write = function (data) {
+    //   this.stream.write(data);
+    // };
 
-    Device.prototype.registerToData = function(fn) {
-      this.stream.pipe(split()).on('data', function (d) {
-        fn(d);
-      });
-    };
+    // Device.prototype.registerToData = function(fn) {
+    //   this.stream.pipe(split()).on('data', function (d) {
+    //     fn(d);
+    //   });
+    // };
 
-    var machines = new Machines();
-    var currDevice;
-    var searchInterval;
+    // var machines = new Machines();
+    // var currDevice;
+    // var searchInterval;
 
-    function searchDevice () {
-      var searchFun = function () {
-        console.log('searching...');
+    // function searchDevice () {
+    //   var searchFun = function () {
+    //     console.log('searching...');
 
-        machines.search(function (device) {
-          currDevice = new Device(device);
-          currDevice.connect().then(function () {
+    //     machines.search(function (device) {
+    //       currDevice = new Device(device);
+    //       currDevice.connect().then(function () {
 
-            clearInterval(searchInterval);
-            setInterval(function () {
-              currDevice.write('?\n');
-            }, 300);
+    //         clearInterval(searchInterval);
+    //         setInterval(function () {
+    //           currDevice.write('?\n');
+    //         }, 300);
 
-            currDevice.registerToData(function (d) {
-              console.log(d);
-            });
+    //         currDevice.registerToData(function (d) {
+    //           console.log(d);
+    //         });
 
-          }, function (err) {
-            console.error(err);
-          });
-        });
-      };
+    //       }, function (err) {
+    //         console.error(err);
+    //       });
+    //     });
+    //   };
 
-      searchFun();
-      searchInterval = setInterval(searchFun, 6000);
-    }
+    //   searchFun();
+    //   searchInterval = setInterval(searchFun, 6000);
+    // }
 
     function _getPorts () {
       var serialPort = require("serialport")
@@ -117,7 +118,7 @@ angular.module('pbUi.openPorts', [])
     }
 
     return {
-      getPorts: _getPorts,
-      searchDevice: searchDevice
+      getPorts: _getPorts
+      // searchDevice: searchDevice
     };
   }]);

@@ -25,12 +25,12 @@ input {
 }
 
 .active {
-  background-color: #018661;
+  background-color: #38AAC7;
   color: white;
 }
 
 .active:hover {
-  background-color: #018661 !important;
+  background-color: #38AAC7 !important;
   color: white;
 }
 
@@ -106,7 +106,7 @@ input {
 
 .nav-sidebar > .active > a:hover {
   color: #fff;
-  background-color: #018661;
+  background-color: #38AAC7;
 }
 
 /*
@@ -142,11 +142,11 @@ input {
 }
 
 .home .port > div:hover {
-  box-shadow: 0 3px 20px rgba(47, 182, 123, 0.33);
+  box-shadow: 0 3px 20px #38AAC7;
   cursor: pointer;
 }
 
 .home .port .selected {
-  background-color: #18BC9C;
+  background-color: #38AAC7;
   color: white;
 }
