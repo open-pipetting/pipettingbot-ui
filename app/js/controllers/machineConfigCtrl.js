@@ -18,8 +18,12 @@ angular.module('pbUi.machineConfigCtrl', [])
 
       if($scope.isCalibrating) {
         code = $scope.machine.GenMoveCode(dir);
-        if (code)
-          $scope.currentMachine.write(code + '\n');
+        if (code) {
+          $scope.currentMachine.write(code + '\n', function (err) {
+            console.log(code);
+            if (err) console.error(err);
+          });
+        }
       }
     };
   }]);

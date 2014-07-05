@@ -7,12 +7,14 @@ angular.module('pbUi.openPorts', [])
     function _getDevice () {
       var dfd = $q.defer();
 
+
       machines.search(function (err, device) {
         if (err) dfd.reject(err);
 
         device.connect(function () {
           device.registerToData(function (err, d) {
-            if (!err) console.log(d);
+            if (err) console.error(err);
+            if (d.match(/Idle/)) console.log(d);
           });
 
           dfd.resolve(device);

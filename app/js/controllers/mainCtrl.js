@@ -60,18 +60,12 @@ angular.module('pbUi.mainCtrl', [])
         return;
       }
 
-      for (var i in $scope.sections) {
-        var sec = $scope.sections[i];
-
-        if (sec.active) sec.active = false;
-      }
+      for (var i in $scope.sections)
+        if ($scope.sections[i].active)
+          $scope.sections[i].active = false;
 
       $scope.sections[index].active = true;
     };
-
-    $scope.isActive = function (section) {
-      return section.active;
-    }
 
     $scope.setCurrentMachine = function (port) {
       if ($scope.currentMachine && $scope.currentMachine !== port)
@@ -86,7 +80,7 @@ angular.module('pbUi.mainCtrl', [])
     };
 
     $scope.$watch('currentMachine', function (newValue, oldValue) {
-      if (newValue) {
+      if (Object.keys(newValue).length) {
         $scope.sections[1].allowed = true;
         $scope.sections[3].allowed = true;
       } else {

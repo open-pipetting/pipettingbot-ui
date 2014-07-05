@@ -20,7 +20,7 @@ angular.module('pbUi.machineService', [])
       var counter = start || {x: 0, y: 0};
 
       return function (dir) {
-        var moveCode = 'G10 ';
+        var moveCode = 'G1 ';
 
         switch (dir) {
           case '+x':
