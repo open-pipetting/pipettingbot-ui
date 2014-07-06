@@ -1,9 +1,10 @@
 angular.module('pbUi.mainCtrl', [])
   .controller('mainCtrl',
-              ['$scope', 'SystemService',
-              function($scope, SystemService) {
+              ['$scope', 'SystemService', 'OpenPorts',
+              function($scope, SystemService, OpenPorts) {
 
     $scope.currentMachine = {};
+
     /**
      * Keeps track of the sections that are allowed to be navigated into
      */
@@ -51,7 +52,7 @@ angular.module('pbUi.mainCtrl', [])
         SystemService.close();
         break;
       }
-    }
+    };
 
     $scope.setSectionAsActive = function (index, event) {
       if (!$scope.sections[index].allowed) {
@@ -72,11 +73,10 @@ angular.module('pbUi.mainCtrl', [])
         $scope.currentMachine.selected = false;
 
       port.selected = !port.selected;
-      if (!port.selected) {
+      if (!port.selected)
         $scope.currentMachine = {};
-      } else {
+      else
         $scope.currentMachine = port;
-      }
     };
 
     $scope.$watch('currentMachine', function (newValue, oldValue) {
@@ -88,4 +88,16 @@ angular.module('pbUi.mainCtrl', [])
         $scope.sections[3].allowed = false;
       }
     });
+
+
+    $scope.getDevice = function () {
+      OpenPorts.getDevice().then(function (device) {
+        $scope.ports = [device];
+      }, function (err) {
+        console.error(err);
+      });
+    };
+
+    $scope.getDevice();
+
   }]);

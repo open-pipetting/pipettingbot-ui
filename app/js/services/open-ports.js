@@ -4,9 +4,15 @@ angular.module('pbUi.openPorts', [])
     var yaspm = require('yaspm')
       , machines = new yaspm.Machines();
 
-    function _getDevice () {
+    /**
+     * Gets a compatible device from the connected stuff
+     * @param  {Function} dcb callback to be resolved when the
+     *                        disconnect event is fired.
+     * @return {promise}     the promise to be resolved with the
+     *                        device or rejected with err.
+     */
+    function _getDevice (dcb) {
       var dfd = $q.defer();
-
 
       machines.search(function (err, device) {
         if (err) dfd.reject(err);
@@ -24,21 +30,8 @@ angular.module('pbUi.openPorts', [])
       return dfd.promise
     };
 
-    function _getPorts () {
-      var serialPort = require("serialport")
-        , dfd = $q.defer();
-
-      serialPort.list(function (err, ports) {
-        if (err) dfd.reject(err);
-
-        dfd.resolve(ports);
-      });
-
-      return dfd.promise;
-    }
 
     return {
-      getPorts: _getPorts,
       getDevice: _getDevice
     };
   }]);
