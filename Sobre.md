@@ -1,6 +1,16 @@
 # pipettingbot-ui
 
-> Uma explicação sobre as decisões a cerca da interface e o controle da máquina através da tal.
+> Uma explicação sobre o uso e as decisões a cerca da interface e o controle da máquina através da tal.
+
+## Uso
+
+Para utilizar a interface é necessário instalar o mesmo (veja em README.md) e possuir uma máquina Open Pipetting Bot.
+
+Tendo isto, conecte a mesma em seu computador (através de alguma entrada USB) e então abra a Interface.
+
+Se a configuração (o controlador estiver OK) não apresentar problemas, a máquina aparecerá então, no *Home*, como conectada.
+
+Basta então ir para o menu de configuração de máquina, configurar a mesma, e então preparar seu experimento com os modelos de arquivos de entrada disponíveis no site!
 
 ## Interface
 
