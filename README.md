@@ -1,6 +1,17 @@
+
 # pipettingbot-ui
 
 > The UI for PipettingBot
+
+- [For the Users](#for-the-users)
+  - [Windows](#windows)
+  - [Linux](#linux)
+  - [MacOSX](#macosx)
+- [Hacking](#hacking)
+  - [Building](#building)
+  - [Dev](#dev)
+  - [Automated Tests](#automated-tests)
+  - [LICENSE](#license)
 
 ## For the Users
 
