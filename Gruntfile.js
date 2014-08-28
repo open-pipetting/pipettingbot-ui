@@ -3,8 +3,8 @@ module.exports = function (grunt) {
 		nodewebkit: {
 			options: {
 				build_dir: './build',
-				win: true,
-				mac: true,
+				win: false,
+				mac: false,
 				linux64: true
 			},
 			src: [
